@@ -1,0 +1,23 @@
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.1'
+    }
+
+}
+allprojects {
+    buildscript {
+        repositories {
+            google()
+            mavenCentral()
+        }
+    }
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+    }
+}
