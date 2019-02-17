@@ -14,6 +14,7 @@ import androidx.core.app.ActivityCompat.requestPermissions
 import androidx.core.content.PermissionChecker.PERMISSION_GRANTED
 import androidx.core.content.PermissionChecker.checkSelfPermission
 import android.telecom.Call
+import android.view.WindowManager
 import io.reactivex.disposables.Disposable
 import java.net.URLEncoder
 
@@ -26,6 +27,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Keep the screen on, so long as we're in the foreground
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
         // Take up the whole screen
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_IMMERSIVE
