@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         // Handle clicks on the UI
         view = findViewById<Button>(R.id.view)
         view.setOnClickListener {
-            if (view.isSelected) {
+            if (view.isSelected || view.isActivated) {
                 log("Clicked: Hanging up…")
                 CallState.hangup()
             } else {
@@ -61,7 +61,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateUi(state: Int) {
-        view.isSelected = state in listOf(Call.STATE_DIALING, Call.STATE_RINGING, Call.STATE_ACTIVE)
+        view.isActivated = state in listOf(Call.STATE_DIALING, Call.STATE_RINGING)
+        view.isSelected = state == Call.STATE_ACTIVE
     }
 
     private fun makeCall() {
